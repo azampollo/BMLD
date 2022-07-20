@@ -3,7 +3,8 @@
 In the proposed algorithm, the detection of AMLD does not assume that the mixed layer has a density difference (∆ρ) close to zero (e.g. threshold methods), and it identifies MLDs regardless any a priori threshold. It also picks up the shallowest and deepest limits of the pycnocline by excluding middle breaks of the pycnocline, allowing the identification for unconventional density vertical distribution. 
 The AMLD represents the last depths up to which ∆ρ is consistently small from the surface to the pycnocline, while the BMLD is the first depth after the pycnocline a from which ∆ρ is consistently small up to the seabed (Fig. 1).
 
-Figure 1: The depths identifying the beginning (AMLD) and end (BMLD) of the pycnocline througout a density profile (black solid line).
+Figure 1
+The depths identifying the beginning (AMLD) and end (BMLD) of the pycnocline througout a density profile (black solid line).
 <img src="Plots/AMLD_BMLD.png" width="400" height="500" />
 
 The method is developped to cope with density profiles having heterogenous shapes in the upper mixed layer, with nested sub-structures such as small re-stratification at the surface, or when the pycnocline can include a small mixed layer (Fig. 2a, e, f) or presents different density gradients (stratified layers) within it (Fig. 2b and c). 
