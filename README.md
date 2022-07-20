@@ -12,7 +12,7 @@ Dataset example
 Write the method 
 Descritption
 and add some figures of the correct identification and errors. Refer to paper!!!!
+<img src="Plots/AMLD_BMLD.png" width="400" height="500" />
 
 <img src="Plots/figA01.png" width="700" height="700" />
 
-<img src="Plots/DLs.png" width="400" height="500" />
