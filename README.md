@@ -13,4 +13,6 @@ Write the method
 Descritption
 and add some figures of the correct identification and errors. Refer to paper!!!!
 
-![My Image](Plots/figA01.png)
+![My Image 1](Plots/figA01.png)
+
+![My Image 2](Plots/DLs.png)
