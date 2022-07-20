@@ -13,6 +13,7 @@ Write the method
 Descritption
 and add some figures of the correct identification and errors. Refer to paper!!!!
 
-![My Image 1](Plots/figA01.png = 250x250)
+![My Image 1](Plots/figA01.png)
+<img src="https://github.com/favicon.ico" width="48">
 
-![My Image 2](Plots/DLs.png = 250x250)
+![My Image 2](Plots/DLs.png)
