@@ -11,7 +11,8 @@ The method is developped to cope with density profiles having heterogenous shape
 Figure 2
 <img src="Plots/figA01.png" width="700" height="700" />
 
-AMLD and BMLD have been identified developing an algorithm based on Chu and Fan (2011) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). <a href="doc:introduction" target="_blank">Introduction</a>
+AMLD and BMLD have been identified developing an algorithm based on Chu and Fan (2011) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). <a href="doc:introduction" target="sfsf">Introduction</a>
+
 This page contains the code to extract BMLD from in situ profiles, an example and a brief description of the method
 
 The function is attached to the paper published in XXXX
