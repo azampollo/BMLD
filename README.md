@@ -13,7 +13,7 @@ Write the method
 Descritption
 and add some figures of the correct identification and errors. Refer to paper!!!!
 
-![My Image 1]<Plots/figA01.png, width="400" height="790">
+![My Image 1](Plots/figA01.png)
 
-
+<img src="Plots/figA01.png" width="200" height="400" />
 ![My Image 2](Plots/DLs.png)
