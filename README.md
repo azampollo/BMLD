@@ -6,6 +6,9 @@ The AMLD represents the last depths up to which ∆ρ is consistently small from
 Figure 1
 <img src="Plots/AMLD_BMLD.png" width="400" height="500" />
 
+The method is developped to cope with density profiles having heterogenous shapes in the upper mixed layer, with nested sub-structures such as small re-stratification at the surface, or when the pycnocline can include a small mixed layer (Fig. 2a, e, f) or presents different density gradients (stratified layers) within it (Fig. 2b and c). 
+
+Figure 2
 <img src="Plots/figA01.png" width="700" height="700" />
 
 
@@ -22,4 +25,4 @@ Dataset example
 Write the method 
 Descritption
 and add some figures of the correct identification and errors. Refer to paper!!!!
-<img src="Plots/AMLD_BMLD.png" width="400" height="500" />
+
