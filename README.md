@@ -1,6 +1,6 @@
 # BMLD
 
-In the proposed algorithm, the detection of AMLD does not assume that the mixed layer has a density difference (∆ρ) close to zero (e.g. threshold methods), and it identifies MLDs regardless any a priori threshold. It also picks up the shallowest and deepest limits of the pycnocline by excluding middle breaks of the pycnocline, allowing the identification for unconventional density vertical distribution. 
+In the proposed algorithm described in [Zampollo et al. 2022](https://egusphere.copernicus.org/preprints/2022/egusphere-2022-140/), the detection of AMLD does not assume that the mixed layer has a density difference (∆ρ) close to zero (e.g. threshold methods), and it identifies MLDs regardless any a priori threshold. It also picks up the shallowest and deepest limits of the pycnocline by excluding middle breaks of the pycnocline, allowing the identification for unconventional density vertical distribution. 
 The AMLD represents the last depths up to which ∆ρ is consistently small from the surface to the pycnocline, while the BMLD is the first depth after the pycnocline a from which ∆ρ is consistently small up to the seabed (Fig. 1).
 
 Figure 1
@@ -11,7 +11,7 @@ The method is developped to cope with density profiles having heterogenous shape
 Figure 2
 <img src="Plots/figA01.png" width="700" height="700" />
 
-AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). The algorithm’s sequence identifies the depth with the largest density difference between a mixed and a stratified layer using i) an adaptation of the maximum angle method ([Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (〖∆ρ〗_z= |ρ_z- ρ_(z+1) |). The method is designed to work with equal, high-resolution, intervals of density values (z) in the profiles (Fig. 3) ADD FIGURE 3 = one of the profiles given as an example in R.
+AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). The algorithm’s sequence identifies the depth with the largest density difference between a mixed and a stratified layer using i) an adaptation of the maximum angle method ([Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (∆ρ) (See details in Supplementary materials). The method is designed to work with equal, high-resolution, intervals of density values (z) in the profiles (Fig. 3) ADD FIGURE 3 = one of the profiles given as an example in R.
 
 ADD REFERENCE PAPER
 -------------------------
