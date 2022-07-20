@@ -11,8 +11,10 @@ The method is developped to cope with density profiles having heterogenous shape
 Figure 2
 <img src="Plots/figA01.png" width="700" height="700" />
 
-AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). 
+AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). The algorithm’s sequence identifies the depth with the largest density difference between a mixed and a stratified layer using i) an adaptation of the maximum angle method ([Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (〖∆ρ〗_z= |ρ_z- ρ_(z+1) |). The method is designed to work with equal, high-resolution, intervals of density values (z) in the profiles (Fig. 3) ADD FIGURE 3 = one of the profiles given as an example in R.
 
+ADD REFERENCE PAPER
+-------------------------
 This page contains the code to extract BMLD from in situ profiles, an example and a brief description of the method
 
 The function is attached to the paper published in XXXX
