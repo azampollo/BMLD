@@ -11,12 +11,14 @@ The method is developped to cope with density profiles having heterogenous shape
 Figure 2
 <img src="Plots/figA01.png" width="700" height="700" />
 
-AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). The algorithm’s sequence identifies the depth with the largest density difference between a mixed and a stratified layer using i) an adaptation of the maximum angle method ([Chu and Fan 2011](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (∆ρ) (See details in [Supplementary materials](https://github.com/azampollo/BMLD/blob/main/SuppMat.docx)). The method is designed to work with equal, high-resolution, intervals of density values (z) in the profiles (Fig. 3) 
+AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). The algorithm’s sequence identifies the depth with the largest density difference between a mixed and a stratified layer using i) an adaptation of the maximum angle method ([Chu and Fan 2011](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (∆ρ) (See details in [Supplementary materials](https://github.com/azampollo/BMLD/blob/main/SuppMat.docx)). The method is designed to work with equal, high-resolution, intervals of density values (z) in the profiles (Fig. 3).
+
+The function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) is used in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R). The identification can be done for both AMLD and BMLD, or for BMLD. The funtion will delete rows with NA values, and identify AMLD up to 30 m. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification for profiles having either a little or big number of observations within the pycnocline).
 
 Figure 3
 <img src="Plots/Profiles_AMLD_BMLD.png" />
 
-The use of function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) is described in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R) code. The identification can be done for both AMLD and BMLD, or for BMLD. The funtion will delete rows with NA values, and identify AMLD up to 30 m. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification for profiles having either a little or big number of observations within the pycnocline).
+More details are reported in [Zampollo et al. 2022](https://egusphere.copernicus.org/preprints/2022/egusphere-2022-140/).
 
 Figures' captions
 -------------------------
