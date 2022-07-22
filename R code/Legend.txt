@@ -1,0 +1,5 @@
+This folder contains:
+- abmld.R: function to extrapolate AMLD and BMLD from density profiles
+- Get_amld_bmld.R: code to load an example of dataset and run the function. Plots created in this code are saved in BMLD/Plot
+- Profiles_example.txt: dataset with 12 profiles to try the function
+
