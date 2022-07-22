@@ -14,27 +14,15 @@ Figure 2
 AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2). The algorithm’s sequence identifies the depth with the largest density difference between a mixed and a stratified layer using i) an adaptation of the maximum angle method ([Chu and Fan 2011](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (∆ρ) (See details in [Supplementary materials](https://github.com/azampollo/BMLD/blob/main/SuppMat.docx)). The method is designed to work with equal, high-resolution, intervals of density values (z) in the profiles (Fig. 3) 
 
 Figure 3
-<img src="Plots/Profiles_AMLD_BMLD.png" width="180" height="250" />
+<img src="Plots/Profiles_AMLD_BMLD.png" />
 
-The function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R)
-The funtion will delete rows with NAs.
+The use of function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) is described in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R) code. The identification can be done for both AMLD and BMLD, or for BMLD. The funtion will delete rows with NA values. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification for profiles having either a little or big number of observations within the pycnocline).
 
-References
+Figures' captions
 -------------------------
-**Figure 2:** Examples of density profiles (grey line) (a-f). The black squares are the values at 1 m resolution. Red dots refer to BMLD, green dots to AMLD. Crosses refer to misidentified AMLD (in green) and BMLD (in red) that needed to be manually corrected.   
-
 **Figure 1:** The depths identifying the beginning (AMLD) and end (BMLD) of the pycnocline througout a density profile (black solid line).                              
 This page contains the code to extract BMLD from in situ profiles, an example and a brief description of the method
 
-The function is attached to the paper published in XXXX
+**Figure 2:** Examples of density profiles (grey line) (a-f). The black squares are the values at 1 m resolution. Red dots refer to BMLD, green dots to AMLD. Crosses refer to misidentified AMLD (in green) and BMLD (in red) that needed to be manually corrected.   
 
-Add files:
-Supplementary material of the paper
-Function
-Code in R to extract the AMLD and BMLD, and plot them
-Dataset example
-
-Write the method 
-Descritption
-and add some figures of the correct identification and errors. Refer to paper!!!!
-
+**Figure 3:** Examples of density profiles (black lines) whit observations at 1 m (black dots). AMLD (red horixontal line) and BMLD (blue horizontal line) are reported for each profile using [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R).
