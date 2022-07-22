@@ -16,7 +16,7 @@ AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan
 Figure 3
 <img src="Plots/Profiles_AMLD_BMLD.png" />
 
-The use of function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) is described in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R) code. The identification can be done for both AMLD and BMLD, or for BMLD. The funtion will delete rows with NA values. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification for profiles having either a little or big number of observations within the pycnocline).
+The use of function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) is described in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R) code. The identification can be done for both AMLD and BMLD, or for BMLD. The funtion will delete rows with NA values, and identify AMLD up to 30 m. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification for profiles having either a little or big number of observations within the pycnocline).
 
 Figures' captions
 -------------------------
