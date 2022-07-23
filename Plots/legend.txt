@@ -1,1 +1,1 @@
-Figures obtained from the XX.R code
+Figures obtained from the Get_amld_bmld.R code and figures related to the method.
