@@ -19,7 +19,7 @@
 # or  you can get only BMLD specifying "both=FALSE".
 
 # The function returns a dataframe with:
-# - profileID: the ID identifying for each inputted profile
+# - profileID: the ID identifying each inputted profile
 # - AMLD
 # - BMLD
 # - n: number of observations between AMLD and BMLD (used to check profiles with 
