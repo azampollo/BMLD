@@ -19,10 +19,11 @@
 # or  you can get only BMLD specifying "both=FALSE".
 
 # The function returns a dataframe with:
-# - profileID: the ID identifying for the profile
+# - profileID: the ID identifying for each inputted profile
 # - AMLD
 # - BMLD
-# - n: number of observations between AMLD and BMLD
+# - n: number of observations between AMLD and BMLD (used to check profiles with 
+#   < 4 observations or large numbers)
 
 abmld <- function(dataset, profileID, both = TRUE) {          
   out <- as.data.frame(matrix(data = NA, nrow = length(profileID), ncol = 4))
