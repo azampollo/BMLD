@@ -7,7 +7,7 @@
 
 # This code runs abmld.R function to get AMLD and BMLD from vertical profiles of density 
 # at a high vertical resolution (1 m).
-# AMLD and BMLD identifyied for profiles having a pycnocline with less than 4 points should be checked.
+# AMLD and BMLD identifyied from profiles having a pycnocline with less than 4 points should be checked.
 
 ##### Load dataset with 12 profiles of denisty at 1 m depth vertical resolution #####
 setwd("./")
@@ -48,7 +48,7 @@ source("abmld.R")
 # or  you can get only BMLD specifying "both=FALSE".
 
 # The function returns a dataframe with:
-# - profileID: the ID identifying for each inputted profile
+# - profileID: the ID identifying each inputted profile
 # - AMLD
 # - BMLD
 # - n: number of observations between AMLD and BMLD (used to check profiles with 
