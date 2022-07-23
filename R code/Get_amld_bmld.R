@@ -5,9 +5,9 @@
 # email: zampolloarianna@gmail.com 
 
 
-# This code run abmld.R function to get AMLD and BMLD from vertical profiles of density 
+# This code runs abmld.R function to get AMLD and BMLD from vertical profiles of density 
 # at a high vertical resolution (1 m).
-# AMLD and BMLD identifyied for trofiles having a pycnocline with less than 4 points should be checked.
+# AMLD and BMLD identifyied for profiles having a pycnocline with less than 4 points should be checked.
 
 ##### Load dataset with 12 profiles of denisty at 1 m depth vertical resolution #####
 setwd("./")
@@ -20,7 +20,7 @@ head(dataset)
 
 # the dataset is structured with depths values in column "pressure"
 # the id identifying for each profile in "profile"
-# the density value in "value"
+# the density values in "value"
 
 ## the function works with IDs identifying profiles specifyied as character
 dataset$profile <- as.character(dataset$profile)
@@ -28,7 +28,7 @@ dataset$profile <- as.character(dataset$profile)
 ## get vector of identifying names for each profile #####
 profileID <- as.character(levels(as.factor(dataset$profile)))
 
-##### GET AMLD and BMLD ####
+##### GET AMLD and BMLD #####
 ## download abmld.R and load it
 setwd("./")
 source("abmld.R")
@@ -48,10 +48,11 @@ source("abmld.R")
 # or  you can get only BMLD specifying "both=FALSE".
 
 # The function returns a dataframe with:
-# - profileID: the ID identifying for the profile
+# - profileID: the ID identifying for each inputted profile
 # - AMLD
 # - BMLD
-# - n: number of observations between AMLD and BMLD
+# - n: number of observations between AMLD and BMLD (used to check profiles with 
+#   < 4 observations or large numbers)
 
 
 out1 <- abmld(dataset, profileID, both=TRUE)
