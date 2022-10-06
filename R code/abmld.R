@@ -10,24 +10,23 @@
 #   value: column with density at each depth (row) (numeric)
 #   profile: ID identifying the profiles of each observations (row) (character)
 # - profileID: vector of ID (as character) identifying all the input profile.
-# - both: logical (T/F) to specify the indetification of both AMLD and BMLD (both=TRUE), 
+# - both: logical (T/F) to specify the indetification of both MLD and BMLD (both=TRUE), 
 #   or the identification of BMLD (both=FALSE)
 
 # The code deletes the rows with NAs.
-# The function is constrained to identify AMLD up to 30 m depth
-# You can claculate both parameters, AMLD and BMLD, specyifing "both = TRUE", 
+# The function is constrained to identify MLD up to 30 m depth
+# You can claculate both parameters, MLD and BMLD, specyifing "both = TRUE", 
 # or  you can get only BMLD specifying "both=FALSE".
 
 # The function returns a dataframe with:
-# - profileID: the ID identifying each inputted profile
-# - AMLD
+# - profileID: the ID identifying for the profile
+# - MLD
 # - BMLD
-# - n: number of observations between AMLD and BMLD (used to check profiles with 
-#   < 4 observations or large numbers)
+# - n: number of observations between MLD and BMLD
 
 abmld <- function(dataset, profileID, both = TRUE) {          
   out <- as.data.frame(matrix(data = NA, nrow = length(profileID), ncol = 4))
-  colnames(out) <- c('profileID', 'AMLD', 'BMLD', 'n')
+  colnames(out) <- c('profileID', 'MLD', 'BMLD', 'n')
   out$profileID <- profileID
   
   
@@ -99,9 +98,13 @@ abmld <- function(dataset, profileID, both = TRUE) {
     
     ##### BMLD #####
 
-    ## CHANGES IN 27/04/21 
+    ### 27/04/21 
+    ## USE L. 103-104 IF YOU WANT TO SET THE BOTTOM LIMIT OF SPLIT2 TO EXCLUDE 10% OF THE DEEPEST OBSERVATIONS
     per15 <- nrow(dd)-round((dd$pressure[nrow(dd)]*10)/100)
     d <- dd[1:per15,]
+    # USE L. 106-107 IF YOU WANT TO USE THE WHOLE DENSITY PROFILE
+    #per15 <- nrow(dd)
+    #d <- dd[1:per15,]
     
     min <- round(min(d$value, na.rm = T), digits = 3)
     max <- round(max(d$value, na.rm = T), digits = 3)
@@ -223,20 +226,20 @@ abmld <- function(dataset, profileID, both = TRUE) {
         pos <- match(find_s2$pressure[1], d$pressure)
       }
       
-      out$BMLD[n] <- d$pressure[pos] # PUT n BECAUSE THE LOOP IS IN THE SEQUENCE OF DATASET
+      out$BMLD[n] <- d$pressure[pos] # n BECAUSE THE LOOP IS IN THE SEQUENCE OF DATASET
       
       options(warn=-1)
-      rm(d, brek, find0, filterT, find_s2, split2, split2_1) # NOT DELETE POS, used in AMLD 
+      rm(d, brek, find0, filterT, find_s2, split2, split2_1) # NOT DELETE POS, used in MLD 
       options(warn=0)
       
     } else {
-      warning(paste(profileID[n], "has not enaugh points to calculate BMLD and AMLD", sep = " "))
+      warning(paste(profileID[n], "has not enaugh points to calculate BMLD and MLD", sep = " "))
       out$BMLD[n] <- NA
-      out$AMLD[n] <- NA
+      out$MLD[n] <- NA
     }
     
     
-    ##### AMLD ######
+    ##### MLD ######
     if (both == TRUE) {
     if (is.na(out$BMLD[n]) == T) {
       next
@@ -276,7 +279,7 @@ abmld <- function(dataset, profileID, both = TRUE) {
         if (any(find_s1$cc) == FALSE) { # all the logical value in cc all FALSE? 
           for (i in 1:nrow(find_s1)) {
             
-            #HAD TO ADD LIMIT OF AMLD TO 30 M WITH THIS CONDITION OF ALL FALSE BECAUSE IT CATCHES DEEP POINTS
+            #HAD TO ADD LIMIT OF MLD TO 30 M WITH THIS CONDITION OF ALL FALSE BECAUSE IT CATCHES DEEP POINTS
             if ((find_s1$grad1[i] > find_s1$prev[i] && find_s1$pressure[i] <=30) ==T){ # choose the first layer with highest PHI but above 30 m depth and with the gradient larger than the gradient of the point before
               find01 <- find_s1[i,]
               break 
@@ -332,9 +335,9 @@ abmld <- function(dataset, profileID, both = TRUE) {
           pos_s1 <- match(find01$pressure[1], dd$pressure)
         }
         
-        #CHECK OF THE LOOP ABOVE: IF ALL THE CLUSTERS ABOVE the candidate for AMLD ARE ARE THE SAME, THEN TAKE THIS MLD, OTHERWISE USE THRESHOLD -- it avoids steps in the middle of the pycnocline
+        #CHECK OF THE LOOP ABOVE: IF ALL THE CLUSTERS ABOVE the candidate for MLD ARE ARE THE SAME, THEN TAKE THIS MLD, OTHERWISE USE THRESHOLD -- it avoids steps in the middle of the pycnocline
         pos_s <- as.numeric(pos_s1-1)
-        if ((length(unique(na.omit(split1_1$cc[1:pos_s])))==1)==F){ #if ANY of the values from pos_s1 and the surface is true, then ignore pos_s1 and select by threshold. If all the values above AMLD are the not the same of the first one, use threshold
+        if ((length(unique(na.omit(split1_1$cc[1:pos_s])))==1)==F){ #if ANY of the values from pos_s1 and the surface is true, then ignore pos_s1 and select by threshold. If all the values above MLD are the not the same of the first one, use threshold
           for (p in 1:nrow(split1_1)){
             if (split1_1$grad1[p] > 0.021) {
               find01 <- split1_1[p,]
@@ -363,7 +366,7 @@ abmld <- function(dataset, profileID, both = TRUE) {
       } 
       
       
-      out$AMLD[n] <- dd$pressure[pos_s1]
+      out$MLD[n] <- dd$pressure[pos_s1]
       out$n[n] <- pos-pos_s1
       
       options(warn=-1)
