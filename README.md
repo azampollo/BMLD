@@ -17,7 +17,7 @@ The identification of MLD and BMLD is supported by the function [abmld.R](https:
 
 <img src="Plots/Profiles_AMLD_BMLD.png" /> Figure 3
 
-Since [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) has been coded to use 90% of the obseravtions from the surface to the seabed, the ame set up is not working if your profiles have BMLD very close to the end (deep portion) of the density profiles. If you want to run the function using all the points of your profile, in [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) you hvae to comment L. 103-104 and uncomment L. 106-107 as shown below:
+[abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) is set up to work with the first 90% of the obseravtions from the surface to the seabed (10% of the deepest points are not used). This setting is not ideal if your profiles have BMLD very close to the end (deep portion) of your density profiles. If you want to run the function using all the points of the profile, in [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) you have to comment L. 103-104 and uncomment L. 106-107 as shown below:
 
 ````
 ## USE L. 103-104 IF YOU WANT TO SET THE BOTTOM LIMIT OF SPLIT2 TO EXCLUDE 10% OF THE DEEPEST OBSERVATIONS
