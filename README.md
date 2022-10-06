@@ -1,6 +1,6 @@
 # BMLD
 
-*This page contains the code to extract BMLD from in situ profiles, an example and a brief description of the method*
+>*This page contains the code to extract BMLD from in situ profiles, an example and a brief description of the method*
 
 The provided algorithm described in [Zampollo et al. 2022](https://egusphere.copernicus.org/preprints/2022/egusphere-2022-140/) detects MLD and BMLD regardless any *a priori* threhsold by assuming that the mixed layer has a density gradient (∆ρ) close to zero (e.g. threshold methods). This method identifies the top and base of the pycnoclines investigating the shape of density profiles and allowing the identification of unconventional density vertical distribution. 
 The MLD represents the last depths up to which ∆ρ is consistently small from the surface to the pycnocline, while the BMLD is the first depth after the pycnocline a from which ∆ρ is consistently small up to the seabed (Fig. 1).
