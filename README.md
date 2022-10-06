@@ -3,8 +3,7 @@
 The provided algorithm described in [Zampollo et al. 2022](https://egusphere.copernicus.org/preprints/2022/egusphere-2022-140/) detects MLD and BMLD regardless any *a priori* threhsold by assuming that the mixed layer has a density gradient (∆ρ) close to zero (e.g. threshold methods). This method identifies the top and base of the pycnoclines investigating the shape of density profiles and allowing the identification of unconventional density vertical distribution. 
 The MLD represents the last depths up to which ∆ρ is consistently small from the surface to the pycnocline, while the BMLD is the first depth after the pycnocline a from which ∆ρ is consistently small up to the seabed (Fig. 1).
 
-Figure 1
-<img src="Plots/MLD_BMLD.png" width="400" height="500" /> **Figure 1:** The depths identifying the beginning (AMLD) and end (BMLD) of the pycnocline througout a density profile (black solid line).                             
+**Figure 1:** The depths identifying the beginning (AMLD) and end (BMLD) of the pycnocline througout a density profile (black solid line).                             <img src="Plots/MLD_BMLD.png" width="400" height="500" />       
    
 MLD and BMLD are identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) method able to cope with various density profiles exhibiting a pycnocline (Fig. 2), with nested sub-structures such as small re-stratification at the surface, with pycnocline including a small mixed layer (Fig. 2a, e, f) or pycnoclines including different density gradients (different stratified layers) (Fig. 2b and c). 
 
