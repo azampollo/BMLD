@@ -15,8 +15,7 @@ The algorithm’s sequence (see details in [Supplementary materials](https://git
 
 The identification of MLD and BMLD is supported by the function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R). Some exaples of its use are reported in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R) (the sampled profiles are reported in Fig. 3 with MLD and BMLD). The function can identify both MLD and BMLD, or BMLD only (argument "both=F" must be specified in this case). The function will delete rows with NA values, and identify MLD up to 30 m. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification of profiles having either a small or big number of observations within the pycnocline).
 
-<img src="Plots/Profiles_AMLD_BMLD.png" />
-Figure 3
+<img src="Plots/Profiles_AMLD_BMLD.png" /> Figure 3
 
 Since [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) has been coded to use 90% of the obseravtions from the surface to the seabed, the ame set up is not working if your profiles have BMLD very close to the end (deep portion) of the density profiles. If you want to run the function using all the points of your profile, in [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) you hvae to comment L. 103-104 and uncomment L. 106-107 as shown below:
 
