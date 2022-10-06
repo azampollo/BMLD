@@ -1,22 +1,33 @@
 # BMLD
 
-In the proposed algorithm described in [Zampollo et al. 2022](https://egusphere.copernicus.org/preprints/2022/egusphere-2022-140/), the detection of AMLD does not assume that the mixed layer has a density difference (∆ρ) close to zero (e.g. threshold methods), and it identifies MLDs regardless any *a priori* threshold. It also picks up the shallowest and deepest limits of the pycnocline by excluding middle breaks of the pycnocline, allowing the identification of unconventional density vertical distribution. 
-The AMLD represents the last depths up to which ∆ρ is consistently small from the surface to the pycnocline, while the BMLD is the first depth after the pycnocline a from which ∆ρ is consistently small up to the seabed (Fig. 1).
+The provided algorithm described in [Zampollo et al. 2022](https://egusphere.copernicus.org/preprints/2022/egusphere-2022-140/) detects MLD and BMLD regardless any *a priori* threhsold by assuming that the mixed layer has a density gradient (∆ρ) close to zero (e.g. threshold methods). This method identifies the top and base of the pycnoclines investigating the shape of density profiles and allowing the identification of unconventional density vertical distribution. 
+The MLD represents the last depths up to which ∆ρ is consistently small from the surface to the pycnocline, while the BMLD is the first depth after the pycnocline a from which ∆ρ is consistently small up to the seabed (Fig. 1).
 
 Figure 1
-<img src="Plots/AMLD_BMLD.png" width="400" height="500" />
+<img src="Plots/MLD_BMLD.png" width="400" height="500" />
    
-AMLD and BMLD have been identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) framework to produce a method able to cope with various density profiles exhibiting a pycnocline (Fig. 2), with nested sub-structures such as small re-stratification at the surface, or when the pycnocline can include a small mixed layer (Fig. 2a, e, f) or presents different density gradients (stratified layers) within it (Fig. 2b and c). 
+MLD and BMLD are identified developing an algorithm based on [Chu and Fan (2011)](https://doi.org/10.1007/s10872-011-0019-2) method able to cope with various density profiles exhibiting a pycnocline (Fig. 2), with nested sub-structures such as small re-stratification at the surface, with pycnocline including a small mixed layer (Fig. 2a, e, f) or pycnoclines including different density gradients (different stratified layers) (Fig. 2b and c). 
 
 Figure 2
 <img src="Plots/figA01.png" width="700" height="700" />
 
-The algorithm’s sequence (see details in [Supplementary materials](https://github.com/azampollo/BMLD/blob/main/SuppMat.docx)) identifies the depth with the largest density difference between a mixed and a stratified layer using i) an adaptation of the maximum angle method ([Chu and Fan 2011](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (∆ρ). The method is designed to work with equal, high-resolution, intervals of density values (z) in the profiles (Fig. 3).
+The algorithm’s sequence (see details in [Supplementary materials](https://github.com/azampollo/BMLD/blob/main/SuppMat.docx)) identifies the depth with the largest density difference between a mixed and a stratified layer (Fig. 1) using i) an adaptation of the maximum angle method ([Chu and Fan 2011](https://doi.org/10.1007/s10872-011-0019-2)) and ii) a cluster analysis on the density difference (∆ρ). The method is designed to work with equal, high-resolution (1 meter), intervals of density values (z) in the profiles (Fig. 3). The algorithm is designed for shelf stratified waters, with a pycnocline defined by > 5 points, and BMLD distributed within 90% of the observations from the surface to the seabed. 
 
-The method is coded into the function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R), whose use is given with some examples in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R) (the sampled profiles are reported in Fig. 3 with AMLD and BMLD). The identification can be done for both AMLD and BMLD, or just for BMLD. The function will delete rows with NA values, and identify AMLD up to 30 m. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification of profiles having either a small or big number of observations within the pycnocline).
+The identification of MLD and BMLD is supported by the function [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R). Some exaples of its use are reported in [Get_amld_bmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/Get_amld_bmld.R) (the sampled profiles are reported in Fig. 3 with MLD and BMLD). The function can identify both MLD and BMLD, or BMLD only (argument "both=F" must be specified in this case). The function will delete rows with NA values, and identify MLD up to 30 m. It returns a dataframe with the name of the profile, the depth of AMLD and BMLD, and the number of observations between AMLD and BMLD (which is useful to check the identification of profiles having either a small or big number of observations within the pycnocline).
 
 Figure 3
 <img src="Plots/Profiles_AMLD_BMLD.png" />
+
+Since [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) has been coded to use 90% of the obseravtions from the surface to the seabed, the ame set up is not working if your profiles have BMLD very close to the end (deep portion) of the density profiles. If you want to run the function using all the points of your profile, in [abmld.R](https://github.com/azampollo/BMLD/blob/main/R%20code/abmld.R) you hvae to comment L. 103-104 and uncomment L. 106-107 as shown below:
+
+````
+## USE L. 103-104 IF YOU WANT TO SET THE BOTTOM LIMIT OF SPLIT2 TO EXCLUDE 10% OF THE DEEPEST OBSERVATIONS
+#per15 <- nrow(dd)-round((dd$pressure[nrow(dd)]*10)/100)
+#d <- dd[1:per15,]
+# USE L. 106-107 IF YOU WANT TO USE THE WHOLE DENSITY PROFILE
+per15 <- nrow(dd)
+d <- dd[1:per15,]
+````
 
 More details are reported in [Zampollo et al. 2022](https://egusphere.copernicus.org/preprints/2022/egusphere-2022-140/).
 
