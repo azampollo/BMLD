@@ -1,5 +1,5 @@
-# Zampollo et al. "A proxy of subsurface Chlorophyll-a in shelf waters: use of density profiles 
-# and the below mixed layer depth (BMLD)", https://doi.org/10.5194/egusphere-2022-140, 2022.
+# Zampollo et al. "The mixed layer depth below the pycnocline (BMLD) as an ecological indicator of subsurface chlorophyll-a", 
+# https://doi.org/10.5194/egusphere-2022-140, 2022.
 # 22 July 2022
 # Arianna Zampollo
 # email: zampolloarianna@gmail.com 
