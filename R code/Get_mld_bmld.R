@@ -1,5 +1,4 @@
-# Zampollo et al. "The mixed layer depth below the pycnocline (BMLD) as an ecological 
-# indicator of subsurface chlorophyll-a", https://doi.org/10.5194/egusphere-2022-140, 2022.
+# Zampollo et al. "The bottom mixed layer depth as an indicator of subsurface Chlorophyll a distribution", DOI: 10.5194/bg-20-3593-2023
 # 22 July 2022
 # Arianna Zampollo
 # email: zampolloarianna@gmail.com 
