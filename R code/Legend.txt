@@ -1,7 +1,7 @@
 Arianna Zampollo, updated on 01-March-2023
 
 This folder contains:
-- abmld.R: function to extrapolate AMLD and BMLD from density profiles
+- abmld.R: function to extrapolate MLD and BMLD from density profiles
 - Get_mld_bmld.R: code to run abmld.R with an example. Plots created in this code are saved in BMLD/Plots
 - profiles_example.txt: dataset with 12 profiles to try the function
 - Get_maxChla.R: code to extract depth of Chl-a max (DCM) using the maximum angle method
